@@ -17,6 +17,7 @@ public class register_handler_command{
         {
             "/start"   => Telegram.Bot.Fadhil_riyanto_bot.Commands.Start.Entry_point(botClient, message),
             "/debug"   => Telegram.Bot.Fadhil_riyanto_bot.Commands.Debug.Entry_point(botClient, message),
+            "/getadmin"   => Telegram.Bot.Fadhil_riyanto_bot.Commands.Getadmin.Entry_point(botClient, message),
             
             // "/keyboard" => SendReplyKeyboard(botClient, message),
             // "/remove"   => RemoveKeyboard(botClient, message),
