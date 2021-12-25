@@ -4,26 +4,8 @@ namespace Telegram.Bot.Fadhil_riyanto_bot.Commands
 {
     class Getadmin
     {
-        // protected ITelegramBotClient botClient;
-        // protected Message message;
         public static async Task<Message> Entry_point(ITelegramBotClient bot, Message msg)
         {
-            // Getadmin gt = new Getadmin();
-            // gt.botClient = bot;
-            // gt.message = msg;
-            // string? text = "";
-            // string[] adminName;
-            // ChatMember[] list_yang_admin = await botClient.GetChatAdministratorsAsync(chatId: message.Chat.Id);
-            // foreach(var listadmins in list_yang_admin){
-            //     if(listadmins.GetType() == typeof(Telegram.Bot.Types.ChatMemberAdministrator))
-            //     {
-            //         // text += $"{listadmins.User.FirstName}\n";
-            //         adminName.Append()
-            //     }else{
-            //         text = $"{listadmins.User}\n\n";
-            //     }
-
-            // }
             List<string> adm_parse = new List<string>();
             string owner = await getowner(bot, msg);
             string[] admin = await getadmin(bot, msg);
@@ -45,15 +27,8 @@ namespace Telegram.Bot.Fadhil_riyanto_bot.Commands
             {
                 if (listadmins.GetType() == typeof(Telegram.Bot.Types.ChatMemberAdministrator))
                 {
-                    // text += $"{listadmins.User.FirstName}\n";
                     adminName.Add($"<a href=\"tg://user?id={listadmins.User.Id}\">{listadmins.User.FirstName}</a>");
                 }
-                // else
-                // {
-                //     text = $"{listadmins.User}\n\n";
-                // }
-                //Console.WriteLine(Telegram.Bot.Fadhil_riyanto_bot.Utils.Debugger.print_r());
-
             }
             return adminName.ToArray();
         }
@@ -66,15 +41,8 @@ namespace Telegram.Bot.Fadhil_riyanto_bot.Commands
             {
                 if (listadmins.GetType() == typeof(Telegram.Bot.Types.ChatMemberOwner))
                 {
-                    // text += $"{listadmins.User.FirstName}\n";
                     adminName = $"<a href=\"tg://user?id={listadmins.User.Id}\">{listadmins.User.FirstName}</a>";
                 }
-                // else
-                // {
-                //     text = $"{listadmins.User}\n\n";
-                // }
-                //Console.WriteLine(Telegram.Bot.Fadhil_riyanto_bot.Utils.Debugger.print_r());
-
             }
             return adminName;
         }
