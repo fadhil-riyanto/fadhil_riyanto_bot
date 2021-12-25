@@ -2,7 +2,7 @@ using System.Text;
 
 namespace Telegram.Bot.Fadhil_riyanto_bot.Utils
 {
-    class Debug_
+    class Debugger
     {
         public static string print_r(Array arr)
         {

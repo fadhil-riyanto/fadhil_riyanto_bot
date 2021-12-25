@@ -24,7 +24,7 @@ namespace Telegram.Bot.Fadhil_riyanto_bot.Utils{
                 }
                 
             }
-            //Console.WriteLine(Debug_.print_r(list_yang_admin));
+            //Console.WriteLine(Debugger.print_r(list_yang_admin));
             //Console.WriteLine()
             // return true;
         }
