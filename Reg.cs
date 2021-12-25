@@ -16,6 +16,7 @@ public class register_handler_command{
         var action = message.Text!.Split(' ')[0] switch
         {
             "/start"   => Telegram.Bot.Fadhil_riyanto_bot.Commands.Start.Entry_point(botClient, message),
+            "/debug"   => Telegram.Bot.Fadhil_riyanto_bot.Commands.Debug.Entry_point(botClient, message),
             
             // "/keyboard" => SendReplyKeyboard(botClient, message),
             // "/remove"   => RemoveKeyboard(botClient, message),
