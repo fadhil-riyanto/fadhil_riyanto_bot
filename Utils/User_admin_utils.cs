@@ -15,10 +15,17 @@ namespace Telegram.Bot.Fadhil_riyanto_bot.Utils{
         public async Task is_admin()
         {
             ChatMember[] list_yang_admin = await bot.GetChatAdministratorsAsync(chatId: message.Chat.Id);
-            // foreach(ChatMember listadmins in list_yang_admin){
-            //     Console.WriteLine(lis)
-            // }
-            Console.WriteLine(Debug_.print_r(list_yang_admin));
+            foreach(var listadmins in list_yang_admin){
+                if(listadmins.GetType() == typeof(Telegram.Bot.Types.ChatMemberAdministrator))
+                {
+                    Console.WriteLine(listadmins.User);
+                }else{
+                    Console.WriteLine(listadmins.User);
+                }
+                
+            }
+            //Console.WriteLine(Debug_.print_r(list_yang_admin));
+            //Console.WriteLine()
             // return true;
         }
     }
