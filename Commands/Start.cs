@@ -7,7 +7,7 @@ namespace Telegram.Bot.Fadhil_riyanto_bot.Commands
         {
             string usage = "Hai :)\n" +
                 "tulis /help jika kamu mau tahu menunya.";
-            return await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: usage);
+            return await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: usage, replyToMessageId: message.MessageId, parseMode: Types.Enums.ParseMode.Html);
         }
     }
 }
