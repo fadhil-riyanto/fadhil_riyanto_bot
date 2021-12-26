@@ -1,4 +1,5 @@
 using Telegram.Bot.Types;
+using System.Web;
 using Newtonsoft.Json;
 namespace Telegram.Bot.Fadhil_riyanto_bot.Commands
 {
@@ -9,7 +10,7 @@ namespace Telegram.Bot.Fadhil_riyanto_bot.Commands
             var root = new xjsontostr { Messages = new List<Message> { message } };
             string json = JsonConvert.SerializeObject(root, Formatting.Indented);
 
-            return await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: json, replyToMessageId: message.MessageId, parseMode: Types.Enums.ParseMode.Html);
+            return await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: HttpUtility.HtmlEncode(json), replyToMessageId: message.MessageId, parseMode: Types.Enums.ParseMode.Html);
         }
     }
     public class xjsontostr
