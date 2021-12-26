@@ -6,40 +6,54 @@ using Telegram.Bot.Types.InputFiles;
 using Telegram.Bot.Types.ReplyMarkups;
 using Telegram.Bot.Fadhil_riyanto_bot.Commands;
 
-namespace Telegram.Bot.Fadhil_riyanto_bot{
-public class register_handler_command{
-    public static string? text_plain, username;
-    public static int? user_id;
+namespace Telegram.Bot.Fadhil_riyanto_bot
+{
+    public class register_handler_command
+    {
+        public static string? text_plain, username;
+        public static int? user_id;
 
-    
-    protected static async Task HandleInputanMessage(ITelegramBotClient botClient, Message message){
-        var action = message.Text!.Split(' ')[0] switch
+
+        protected static async Task HandleInputanMessage(ITelegramBotClient botClient, Message message)
         {
-            "/start"   => Telegram.Bot.Fadhil_riyanto_bot.Commands.Start.Entry_point(botClient, message),
-            "/debug"   => Telegram.Bot.Fadhil_riyanto_bot.Commands.Debug.Entry_point(botClient, message),
-            "/getadmin"   => Telegram.Bot.Fadhil_riyanto_bot.Commands.Getadmin.Entry_point(botClient, message),
-            
-            // "/keyboard" => SendReplyKeyboard(botClient, message),
-            // "/remove"   => RemoveKeyboard(botClient, message),
-            // "/photo"    => SendFile(botClient, message),
-            // "/request"  => RequestContactAndLocation(botClient, message),
-            _           => register_handler_command.CommandTidakDitemukan(botClient, message)
-        };
-        Message sentMessage = await action;
+            var action = message.Text!.Split(' ')[0] switch
+            {
+                "/start" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Start.Entry_point(botClient, message),
+                "/debug" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Debug.Entry_point(botClient, message),
+                "/getadmin" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Getadmin.Entry_point(botClient, message),
+
+                // "/keyboard" => SendReplyKeyboard(botClient, message),
+                // "/remove"   => RemoveKeyboard(botClient, message),
+                // "/photo"    => SendFile(botClient, message),
+                // "/request"  => RequestContactAndLocation(botClient, message),
+                _ => register_handler_command.CommandTidakDitemukan(botClient, message)
+            };
+            Message sentMessage = await action;
+        }
+        private static async Task<Message> CommandTidakDitemukan(ITelegramBotClient botClient, Message message)
+        {
+            Utils.Utils utils = new Telegram.Bot.Fadhil_riyanto_bot.Utils.Utils(message);
+            if (utils.is_grup() == false)
+            {
+                string usage = "maaf, command tidak ditemukan";
+                return await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: usage);
+            }
+            else
+            {
+                string usage = "";
+                return await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: usage);
+            }
+
+        }
+        // protected static async Task HandleEditMessage(ITelegramBotClient botClient, Message message){
+
+        // }
+        // protected static async Task HandleCallbackQuery(ITelegramBotClient botClient, CallbackQuery message){
+
+        // }
+        // protected static async Task HandleInlineQuery(ITelegramBotClient botClient, InlineQuery message){
+
+        // }
     }
-    private static async Task<Message> CommandTidakDitemukan(ITelegramBotClient botClient, Message message){
-        string usage = "";
-        return await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: usage);
-    }
-    // protected static async Task HandleEditMessage(ITelegramBotClient botClient, Message message){
-        
-    // }
-    // protected static async Task HandleCallbackQuery(ITelegramBotClient botClient, CallbackQuery message){
-        
-    // }
-    // protected static async Task HandleInlineQuery(ITelegramBotClient botClient, InlineQuery message){
-        
-    // }
-}
 }
 
