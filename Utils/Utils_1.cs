@@ -36,6 +36,14 @@ namespace Telegram.Bot.Fadhil_riyanto_bot.Utils
             }
             return input_telegram;
         }
+        public bool is_grup(){
+            if(
+                message.Chat.Type == Types.Enums.ChatType.Group ||
+                message.Chat.Type == Types.Enums.ChatType.Supergroup
+            ){
+                return true;
+            }return false;
+        }
         private static string hapus_kata_dari_depan(string word, int jumlah_crop_word = 1)
         {
             int i = word.IndexOf(" ") + jumlah_crop_word;
