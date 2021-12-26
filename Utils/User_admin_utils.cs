@@ -12,18 +12,21 @@ namespace Telegram.Bot.Fadhil_riyanto_bot.Utils{
                 bot
             ) = (msg, Bot); 
 
-        public async Task is_admin()
+        public async Task<bool> is_admin()
         {
+
             ChatMember[] list_yang_admin = await bot.GetChatAdministratorsAsync(chatId: message.Chat.Id);
             foreach(var listadmins in list_yang_admin){
-                if(listadmins.GetType() == typeof(Telegram.Bot.Types.ChatMemberAdministrator))
+                if(listadmins.GetType() == typeof(Telegram.Bot.Types.ChatMemberAdministrator) || listadmins.GetType() == typeof(Telegram.Bot.Types.ChatMemberOwner))
                 {
-                    Console.WriteLine(listadmins.User);
-                }else{
-                    Console.WriteLine(listadmins.User);
+                    if(message.From.Id == listadmins.User.Id){
+                        return true;
+                    }
                 }
                 
             }
+            return false;
+            
             //Console.WriteLine(Debugger.print_r(list_yang_admin));
             //Console.WriteLine()
             // return true;
