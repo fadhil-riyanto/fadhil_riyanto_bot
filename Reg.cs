@@ -21,6 +21,7 @@ namespace Telegram.Bot.Fadhil_riyanto_bot
                 "/start" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Start.Entry_point(botClient, message),
                 "/debug" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Debug.Entry_point(botClient, message),
                 "/getadmin" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Getadmin.Entry_point(botClient, message),
+                "/xjson" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Xjson.Entry_point(botClient, message),
 
                 // "/keyboard" => SendReplyKeyboard(botClient, message),
                 // "/remove"   => RemoveKeyboard(botClient, message),
@@ -43,7 +44,6 @@ namespace Telegram.Bot.Fadhil_riyanto_bot
                 string usage = "";
                 return await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: usage);
             }
-
         }
         // protected static async Task HandleEditMessage(ITelegramBotClient botClient, Message message){
 
