@@ -2,4 +2,5 @@
 class konfigurasi
 {
     public readonly static string token_bot = "<token anda>";
+    public readonly static bool debug_mod = true;
 }
