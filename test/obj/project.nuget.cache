@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/8XF4/XWTDq23OVKI1Jxm4TAIbeibHeqEzkLT9v6XXuQJNVp0ukt++v1fjlloWt5a3/ZGIwvSPQu0v3smzvCqw==",
+  "success": true,
+  "projectFilePath": "/run/media/fadhil_riyanto/windows_system/BALI64/fadhil_riyanto_bot/test/test.csproj",
+  "expectedPackageFiles": [
+    "/home/fadhil_riyanto/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.0/microsoft.aspnetcore.app.ref.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
