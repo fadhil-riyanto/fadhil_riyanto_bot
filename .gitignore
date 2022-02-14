@@ -3,3 +3,6 @@
 /src/obj/
 /src/.vscode
 /test/conf.cs
+/test/bin/
+/test/obj/
+/test/.vscode
