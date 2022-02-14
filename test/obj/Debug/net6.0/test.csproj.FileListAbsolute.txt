@@ -1,0 +1,5 @@
+/run/media/fadhil_riyanto/windows_system/BALI64/fadhil_riyanto_bot/test/obj/Debug/net6.0/test.csproj.AssemblyReference.cache
+/run/media/fadhil_riyanto/windows_system/BALI64/fadhil_riyanto_bot/test/obj/Debug/net6.0/test.GeneratedMSBuildEditorConfig.editorconfig
+/run/media/fadhil_riyanto/windows_system/BALI64/fadhil_riyanto_bot/test/obj/Debug/net6.0/test.AssemblyInfoInputs.cache
+/run/media/fadhil_riyanto/windows_system/BALI64/fadhil_riyanto_bot/test/obj/Debug/net6.0/test.AssemblyInfo.cs
+/run/media/fadhil_riyanto/windows_system/BALI64/fadhil_riyanto_bot/test/obj/Debug/net6.0/test.csproj.CoreCompileInputs.cache
