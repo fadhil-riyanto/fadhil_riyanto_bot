@@ -16,20 +16,35 @@ namespace Telegram.Bot.Fadhil_riyanto_bot
 
         protected static async Task HandleInputanMessage(ITelegramBotClient botClient, Message message)
         {
-            var action = message.Text!.Split(' ')[0] switch
+            if (!konfigurasi.debug_mod)
             {
-                "/start" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Start.Entry_point(botClient, message),
-                "/debug" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Debug.Entry_point(botClient, message),
-                "/getadmin" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Getadmin.Entry_point(botClient, message),
-                "/xjson" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Xjson.Entry_point(botClient, message),
+                var action = message.Text!.Split(' ')[0] switch
+                {
+                    "/start" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Start.Entry_point(botClient, message),
+                    "/debug" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Debug.Entry_point(botClient, message),
+                    "/getadmin" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Getadmin.Entry_point(botClient, message),
+                    "/xjson" => Telegram.Bot.Fadhil_riyanto_bot.Commands.Xjson.Entry_point(botClient, message),
 
-                // "/keyboard" => SendReplyKeyboard(botClient, message),
-                // "/remove"   => RemoveKeyboard(botClient, message),
-                // "/photo"    => SendFile(botClient, message),
-                // "/request"  => RequestContactAndLocation(botClient, message),
-                _ => register_handler_command.CommandTidakDitemukan(botClient, message)
-            };
-            Message sentMessage = await action;
+                    // "/keyboard" => SendReplyKeyboard(botClient, message),
+                    // "/remove"   => RemoveKeyboard(botClient, message),
+                    // "/photo"    => SendFile(botClient, message),
+                    // "/request"  => RequestContactAndLocation(botClient, message),
+                    _ => register_handler_command.CommandTidakDitemukan(botClient, message)
+                };
+                Message sentMessage = await action;
+            }
+            else
+            {
+                Utils.Utils utils = new Telegram.Bot.Fadhil_riyanto_bot.Utils.Utils(message);
+                if (!utils.is_grup())
+                {
+                    string text = "maaf, bot sedang dalam debugging, coba lagi nanti";
+                    await botClient.SendTextMessageAsync(chatId: message.Chat.Id, text: text, replyToMessageId: message.MessageId, parseMode: Types.Enums.ParseMode.Html);
+                }
+
+
+            }
+
         }
         private static async Task<Message> CommandTidakDitemukan(ITelegramBotClient botClient, Message message)
         {
