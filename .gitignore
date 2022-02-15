@@ -6,3 +6,15 @@
 /test/bin/
 /test/obj/
 /test/.vscode
+
+src/konfigurasi.cs
+src/bin/
+src/obj/
+src/.vscode
+test/conf.cs
+test/bin/
+test/obj/
+test/.vscode
+
+/.vscode
+.vscode/
