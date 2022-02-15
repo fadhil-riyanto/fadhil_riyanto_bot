@@ -1,7 +1,7 @@
 using MongoDB.Bson;
 interface IUtilsDatabase
 {
-    bool Insert(string bson);
+    bool TestConn(string bson);
 }
 namespace db.mongod
 {
@@ -14,7 +14,7 @@ namespace db.mongod
             this.con_uri = koneksi_uri;
         }
 
-        public bool IUtilsDatabase.TestConn(string bson)
+        bool IUtilsDatabase.TestConn(string bson)
         {
             var dbClient = new MongoClient(this.con_uri);
             var dbList = dbClient.ListDatabases().ToList();
